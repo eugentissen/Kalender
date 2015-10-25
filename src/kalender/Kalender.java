@@ -7,18 +7,20 @@ public class Kalender {
 	private ArrayList<Termin> termine = new ArrayList<Termin>();
 
 	public void show() {
-		myGui.showWindow();
+		myGui.setVisible(true);
 	}
 
 	public void addTermin(Termin termin) {
+		int index = 0;
 		if (termine.size() > 0) {
 			for (int i=0;i<termine.size();i++) {
-				//if (termine.get(i).) TODO
+				if (termin.before(termine.get(i))) {
+					index = i;
+					break;
+				}
 			}
 		}
-		else {
-			termine.add(termin);
-		}
+		termine.add(index, termin);
 	}
 
 }

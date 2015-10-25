@@ -1,32 +1,34 @@
 package kalender;
 
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Termin {
-	private final Date erstellungsDatum;
-	private Date terminDatum;
-	private GregorianCalendar cal = new GregorianCalendar();
+	private final GregorianCalendar erstellungsDatum;
+	private GregorianCalendar terminDatum;
 
 	public Termin() {
-		this.erstellungsDatum = new Date();
-		this.terminDatum = null;
+		erstellungsDatum = new GregorianCalendar();
+		terminDatum = null;
 	}
 	
-	public Date getErstellungsDatum() {
+	public GregorianCalendar getErstellungsDatum() {
 		return erstellungsDatum;
 	}
 
-	public void setTerminDatum(Date date) {
-		this.terminDatum = date;
+	public GregorianCalendar getTerminDatum() {
+		return terminDatum;
+	}
+
+	public void setTerminDatum(GregorianCalendar date) {
+		terminDatum = date;
 	}
 	
 	public boolean isInVergangenheit() {
-		return terminDatum.before(new Date());
+		return terminDatum.before(new GregorianCalendar());
 	}
 
 	public boolean isInZukunft() {
-		return terminDatum.after(new Date());
+		return terminDatum.after(new GregorianCalendar());
 	}
 	
 	public boolean before(Termin termin) {
